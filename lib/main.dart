@@ -1,22 +1,80 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
-void main() => runApp(MyApp());
+//void main() => runApp(HelloFlutter());
+//void main() => runApp(StartupNames());
+void main() => runApp(RandomWordsApp());
 
-class MyApp extends StatelessWidget {
-
+class HelloFlutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
-
     return MaterialApp(
-      title: 'Startup Name Generatorr',
-      home: RandomWords(),
+      title: 'Hello Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Hello Flutter'),
+        ),
+        body: Center(
+          child: Text('Bismillah'),
+        ),
+      ),
     );
   }
 }
 
-class RandomWordsState extends State<RandomWords> {
+class RandomWordsApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: RandomWordsGen(),
+    );
+  }
+}
+
+class RandomWordsGen extends StatefulWidget {
+  _RandommWordsGenState createState() => _RandommWordsGenState();
+}
+
+class _RandommWordsGenState extends State<RandomWordsGen> {
+  String txt = 'Press FAB to generate new words';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Random Words'),
+      ),
+      body: Center(
+        child: Text(txt, style: new TextStyle(fontSize: 22)),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.all_inclusive),
+        onPressed: () {
+          setState(() {
+            txt = WordPair.random().asPascalCase;
+          });
+        },
+      ),
+    );
+  }
+}
+
+class StartupNames extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Startup Name Generatorr',
+      home: StartupNamesWidget(),
+    );
+  }
+}
+
+class StartupNamesWidget extends StatefulWidget {
+  @override
+  StartupNamesState createState() => StartupNamesState();
+}
+
+class StartupNamesState extends State<StartupNamesWidget> {
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
@@ -53,9 +111,3 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 }
-
-class RandomWords extends StatefulWidget {
-  @override
-  RandomWordsState createState() => RandomWordsState();
-}
-
