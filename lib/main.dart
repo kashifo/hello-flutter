@@ -3,7 +3,71 @@ import 'package:english_words/english_words.dart';
 
 //void main() => runApp(HelloFlutter());
 //void main() => runApp(StartupNames());
-void main() => runApp(RandomWordsApp());
+//void main() => runApp(RandomWordsApp());
+
+/*void main() {
+  runApp(
+    MaterialApp(
+      home: Text('Hello World'),
+    ),
+  );
+}*/
+
+/*void main() {
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.blueGrey,
+        appBar: AppBar(
+          title: Text('I am Rich'),
+          backgroundColor: Colors.blueGrey[900],
+        ),
+        body: Center(
+          child: Image(
+            image: NetworkImage(
+                'https://cdn.vox-cdn.com/thumbor/AyGBj1C3KgicgO_BtGtLbINeSew=/0x0:2040x1360/1200x800/filters:focal(866x1034:1192x1360)/cdn.vox-cdn.com/uploads/chorus_image/image/59189679/shutterstock_140731432_sized.0.jpg'),
+          ),
+        ),
+      ),
+    ),
+  );
+}*/
+
+/*void main() {
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.blueGrey,
+        appBar: AppBar(
+          title: Text('I am Rich'),
+          backgroundColor: Colors.blueGrey[900],
+        ),
+        body: Center(
+            child: Text(
+          'Kashif Anwaar',
+          style: TextStyle(
+              fontSize: 28,
+              color: Colors.blueGrey[900],
+              fontWeight: FontWeight.bold),
+        )),
+      ),
+    ),
+  );
+}*/
+
+void main() {
+  runApp(MaterialApp(
+      home: Scaffold(
+    appBar: AppBar(
+      title: Text('Kashif Anwaar'),
+    ),
+    body: Center(
+      child: Image(
+        image: AssetImage('images/pp.jpg'),
+      ),
+    ),
+  )));
+}
 
 class HelloFlutter extends StatelessWidget {
   @override
