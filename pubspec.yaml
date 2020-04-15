@@ -21,3 +21,12 @@ flutter:
   uses-material-design: true
   assets:
     - images/
+
+  fonts:
+    - family: Courgette
+      fonts:
+        - asset: fonts/Courgette-Regular.ttf
+
+    - family: CourierPrime
+      fonts:
+        - asset: fonts/CourierPrime-Regular.ttf
