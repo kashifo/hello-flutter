@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyContainers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _Columns2();
+    return _Cell();
   }
 
   Widget _Basic1() {
@@ -111,6 +112,85 @@ class MyContainers extends StatelessWidget {
             )
           ],
         )),
+      ),
+    );
+  }
+
+  Widget _Row() {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Rows'),
+        ),
+        body: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Image(
+                width: 50,
+                height: 50,
+                image: AssetImage('images/fb.png'),
+              ),
+              Image(
+                width: 50,
+                height: 50,
+                image: AssetImage('images/ig.png'),
+              ),
+              Image(
+                width: 50,
+                height: 50,
+                image: AssetImage('images/twitter.png'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _Cell() {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Cells'),
+        ),
+        body: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image(
+                    width: 150,
+                    height: 150,
+                    image: AssetImage('images/fb.png'),
+                  ),
+                  Image(
+                    width: 150,
+                    height: 150,
+                    image: AssetImage('images/ig.png'),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image(
+                    width: 150,
+                    height: 150,
+                    image: AssetImage('images/twitter.png'),
+                  ),
+                  Image(
+                    width: 150,
+                    height: 150,
+                    image: AssetImage('images/linkedin.png'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
