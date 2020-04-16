@@ -16,45 +16,95 @@ import 'hello_flutter.dart';
 //void main() => runApp(KashifImg());
 //void main() => runApp(KashifTxt());
 //void main() => runApp(MyContainers());
-//void main() => runApp(MainList());
-void main() => runApp(MainBizCard());
+//void main() => runApp(MainBizCard());
 
-/*void main() {
+void main() {
   runApp(
     MaterialApp(
-      home: Text('Hello World'),
+      title: 'Flutter Demo',
+      home: RouteList(),
     ),
   );
-}*/
+}
 
-class MainList extends StatelessWidget {
+class RouteList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Routes'),
-        ),
-        body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              RaisedButton(
-                onPressed: () {
-                  Scaffold.of(context)
-                      .showSnackBar(SnackBar(content: Text('Kashif')));
-                },
-                child: Text('Kashif'),
-              ),
-              RaisedButton(
-                onPressed: () {},
-                child: Text('Anwaar'),
-              ),
-              Container(
-                width: double.infinity,
-              )
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Routes'),
+      ),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              child: Text('Bismillah'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HelloFlutter()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('Random Words'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RandomWordsGen()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('Startup Names'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StartupNamesWidget()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('Kashif Txt'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => KashifTxt()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('I Am Rich'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RichWidget()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('Containers'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Cell()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('Business Card'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainBizCard()),
+                );
+              },
+            ),
+            Container(
+              width: double.infinity,
+            )
+          ],
         ),
       ),
     );
