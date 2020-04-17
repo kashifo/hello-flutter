@@ -28,6 +28,8 @@ void main() {
 }
 
 class RouteList extends StatelessWidget {
+  final _myTextStyle = const TextStyle(color: Colors.red);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,77 +37,136 @@ class RouteList extends StatelessWidget {
         title: Text('Routes'),
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            RaisedButton(
-              child: Text('Bismillah'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HelloFlutter()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text('Random Words'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RandomWordsGen()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text('Startup Names'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => StartupNamesWidget()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text('Kashif Txt'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => KashifTxt()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text('I Am Rich'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RichWidget()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text('Containers'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Cell()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text('Business Card'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MainBizCard()),
-                );
-              },
-            ),
-            Container(
-              width: double.infinity,
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 20,
+              ),
+              CircleAvatar(
+                radius: 40.0,
+                backgroundImage: AssetImage('images/pp.jpg'),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                'Kashif Anwaar',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22,
+                  fontFamily: 'Courgette',
+                ),
+              ),
+              SizedBox(
+                height: 1,
+              ),
+              Text(
+                'Flutter Developer',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontFamily: 'CourierPrime',
+                  letterSpacing: 2,
+                ),
+              ),
+              MyDivider(),
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.all(8),
+                  children: <Widget>[
+                    RaisedButton(
+                      child: Text(
+                        'Bismillah',
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HelloFlutter()),
+                        );
+                      },
+                    ),
+                    RaisedButton(
+                      child: Text('Random Words'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RandomWordsGen()),
+                        );
+                      },
+                    ),
+                    RaisedButton(
+                      child: Text('Startup Names'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StartupNamesWidget()),
+                        );
+                      },
+                    ),
+                    RaisedButton(
+                      child: Text('Kashif Txt'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => KashifTxt()),
+                        );
+                      },
+                    ),
+                    RaisedButton(
+                      child: Text('I Am Rich'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => RichWidget()),
+                        );
+                      },
+                    ),
+                    RaisedButton(
+                      child: Text('Containers'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Cell()),
+                        );
+                      },
+                    ),
+                    RaisedButton(
+                      child: Text('Business Card'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MainBizCard()),
+                        );
+                      },
+                    ),
+                    Container(
+                      width: double.infinity,
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
+      ),
+    );
+  }
+}
+
+class MyDivider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 20,
+      width: 250,
+      child: Divider(
+        color: Colors.deepPurpleAccent.shade100,
       ),
     );
   }

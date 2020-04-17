@@ -11,7 +11,7 @@ class RandomWordsApp extends StatelessWidget {
 }
 
 class RandomWordsGen extends StatefulWidget {
-  _RandommWordsGenState createState() => _RandommWordsGenState();
+  _RandommWordsGenState2 createState() => _RandommWordsGenState2();
 }
 
 class _RandommWordsGenState extends State<RandomWordsGen> {
@@ -35,5 +35,46 @@ class _RandommWordsGenState extends State<RandomWordsGen> {
         },
       ),
     );
+  }
+}
+
+class _RandommWordsGenState2 extends State<RandomWordsGen> {
+  String txt = WordPair.random().asPascalCase;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Random Words'),
+        ),
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(txt, style: new TextStyle(fontSize: 22)),
+              SizedBox(
+                height: 15,
+              ),
+              RaisedButton(
+                child: Text('Next'),
+                color: Colors.blueAccent,
+                textColor: Colors.white,
+                onPressed: () {
+                  setState(() {
+                    txt = WordPair.random().asPascalCase;
+                  });
+                },
+                shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(18.0),
+                  //side: BorderSide(color: Colors.red),
+                ),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+              ),
+              Container(
+                width: double.infinity,
+              )
+            ],
+          ),
+        ));
   }
 }
