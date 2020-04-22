@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class MainBizCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _CircleImg();
+    return _circleImg();
   }
 
-  Widget _CircleImg() {
+  Widget _circleImg() {
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent,
       body: SafeArea(

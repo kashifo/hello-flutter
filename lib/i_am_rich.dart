@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class IAmRich extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AssetWidget();
+    return assetWidget();
   }
 }
 
-Widget RichWidget() {
+Widget richWidget() {
   return Scaffold(
     backgroundColor: Colors.blueGrey,
     appBar: AppBar(
@@ -23,7 +23,7 @@ Widget RichWidget() {
   );
 }
 
-Widget AssetWidget() {
+Widget assetWidget() {
   return MaterialApp(
     home: Scaffold(
       backgroundColor: Colors.blueGrey,

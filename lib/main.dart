@@ -4,19 +4,10 @@ import 'package:Hello_Flutter/i_am_rich.dart';
 import 'package:Hello_Flutter/kashif.dart';
 import 'package:Hello_Flutter/startup_names.dart';
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 import 'package:Hello_Flutter/random_words.dart';
 
+import 'dice_app/DiceMain.dart';
 import 'hello_flutter.dart';
-
-//void main() => runApp(HelloFlutter());
-//void main() => runApp(StartupNames());
-//void main() => runApp(RandomWordsApp());
-//void main() => runApp(IAmRich());
-//void main() => runApp(KashifImg());
-//void main() => runApp(KashifTxt());
-//void main() => runApp(MyContainers());
-//void main() => runApp(MainBizCard());
 
 void main() {
   runApp(
@@ -28,14 +19,9 @@ void main() {
 }
 
 class RouteList extends StatelessWidget {
-  final _myTextStyle = const TextStyle(color: Colors.red);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Routes'),
-      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -122,7 +108,7 @@ class RouteList extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => RichWidget()),
+                          MaterialPageRoute(builder: (context) => richWidget()),
                         );
                       },
                     ),
@@ -131,7 +117,7 @@ class RouteList extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Cell()),
+                          MaterialPageRoute(builder: (context) => cellDemo()),
                         );
                       },
                     ),
@@ -142,6 +128,15 @@ class RouteList extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => MainBizCard()),
+                        );
+                      },
+                    ),
+                    RaisedButton(
+                      child: Text('Dice'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => DiceApp()),
                         );
                       },
                     ),

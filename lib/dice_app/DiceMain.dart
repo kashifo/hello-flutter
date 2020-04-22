@@ -2,19 +2,18 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-void main() {
-  return runApp(
-    MaterialApp(
-      home: Scaffold(
+class DiceApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.red,
+      appBar: AppBar(
+        title: Text('Dice App'),
         backgroundColor: Colors.red,
-        appBar: AppBar(
-          title: Text('Dicee'),
-          backgroundColor: Colors.red,
-        ),
-        body: DicePage(),
       ),
-    ),
-  );
+      body: DicePage(),
+    );
+  }
 }
 
 class DicePage extends StatefulWidget {
@@ -35,11 +34,7 @@ class _DicePageState extends State<DicePage> {
             child: FlatButton(
               onPressed: () {
                 setState(() {
-                  if (leftDiceNum < 6) {
-                    leftDiceNum += 1;
-                  } else {
-                    leftDiceNum = 1;
-                  }
+                  leftDiceNum = getRandNum();
                 });
               },
               child: Image.asset('images/dice/dice$leftDiceNum.png'),
@@ -49,8 +44,7 @@ class _DicePageState extends State<DicePage> {
             child: FlatButton(
               onPressed: () {
                 setState(() {
-                  rightDiceNum = 1 + Random().nextInt(7 - 1);
-                  print('rightDiceNum=$rightDiceNum');
+                  rightDiceNum = getRandNum();
                 });
               },
               child: Image.asset('images/dice/dice$rightDiceNum.png'),
@@ -59,5 +53,19 @@ class _DicePageState extends State<DicePage> {
         ],
       ),
     );
+  }
+
+  void incDiceNum() {
+    if (leftDiceNum < 6) {
+      leftDiceNum += 1;
+    } else {
+      leftDiceNum = 1;
+    }
+  }
+
+  int getRandNum() {
+    int min = 1, max = 6;
+    int rand = 1 + Random().nextInt(max - min);
+    return rand;
   }
 }

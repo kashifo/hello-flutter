@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 class MyContainers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Cell();
+    return cellDemo();
   }
 }
+/*
 
-Widget _Basic1() {
+Widget _basic1() {
   return MaterialApp(
     home: Scaffold(
       backgroundColor: Colors.black12,
@@ -20,7 +21,7 @@ Widget _Basic1() {
   );
 }
 
-Widget _Basic2() {
+Widget _basic2() {
   return MaterialApp(
     home: Scaffold(
       backgroundColor: Colors.black12,
@@ -38,7 +39,7 @@ Widget _Basic2() {
   );
 }
 
-Widget _Columns() {
+Widget _columns() {
   return MaterialApp(
     home: Scaffold(
       backgroundColor: Colors.black12,
@@ -65,7 +66,7 @@ Widget _Columns() {
   );
 }
 
-Widget Columns2() {
+Widget columns2() {
   return Scaffold(
     backgroundColor: Colors.black12,
     body: SafeArea(
@@ -115,7 +116,7 @@ Widget Columns2() {
   );
 }
 
-Widget _Row() {
+Widget _row() {
   return MaterialApp(
     home: Scaffold(
       appBar: AppBar(
@@ -146,8 +147,9 @@ Widget _Row() {
     ),
   );
 }
+*/
 
-Widget Cell() {
+Widget cellDemo() {
   return Scaffold(
     appBar: AppBar(
       title: Text('Container Cells'),
@@ -190,4 +192,42 @@ Widget Cell() {
       ),
     ),
   );
+}
+
+class ExpandedAndFlex extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black12,
+      appBar: AppBar(
+        title: Text('Expanded & Flex'),
+      ),
+      body: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Image.asset('images/dice/dice1.png'),
+              ),
+              Expanded(
+                child: Image.asset('images/dice/dice2.png'),
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                flex: 2,
+                child: Image.asset('images/dice/dice3.png'),
+              ),
+              Expanded(
+                flex: 1,
+                child: Image.asset('images/dice/dice4.png'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }

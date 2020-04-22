@@ -14,7 +14,7 @@ class RandomWordsGen extends StatefulWidget {
   _RandommWordsGenState2 createState() => _RandommWordsGenState2();
 }
 
-class _RandommWordsGenState extends State<RandomWordsGen> {
+class RandommWordsGenState extends State<RandomWordsGen> {
   String txt = 'Press FAB to generate new words';
 
   @override
