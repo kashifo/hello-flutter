@@ -5,7 +5,7 @@ class HelloFlutter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello Flutter'),
+        title: Text('Hello World!'),
       ),
       body: Center(
         child: Text('Bismillah'),
