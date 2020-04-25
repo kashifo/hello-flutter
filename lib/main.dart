@@ -2,6 +2,7 @@ import 'package:Hello_Flutter/biz_card/BizCard.dart';
 import 'package:Hello_Flutter/containers.dart';
 import 'package:Hello_Flutter/simple_list.dart';
 import 'package:Hello_Flutter/startup_names.dart';
+import 'package:Hello_Flutter/xylophone.dart';
 import 'package:flutter/material.dart';
 import 'package:Hello_Flutter/random_words.dart';
 
@@ -127,6 +128,15 @@ class RouteList extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => DiceApp()),
+                        );
+                      },
+                    ),
+                    RaisedButton(
+                      child: Text('Xylophone'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => XyloPhone()),
                         );
                       },
                     ),
