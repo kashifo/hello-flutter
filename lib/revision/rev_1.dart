@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'add_to_list.dart';
+
 var title = 'Revision 1 after 18 days';
 
 void main() {
   runApp(
     new MaterialApp(
       title: title,
-      home: Zikr(),
+      home: AddToList(),
     ),
   );
 }
@@ -100,5 +102,76 @@ class _ZikrState2 extends State<Zikr> {
             )
           ],
         ));
+  }
+}
+
+class ExpandedCell extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade800,
+      appBar: AppBar(
+        title: Text('My Social Profiles'),
+        backgroundColor: Colors.grey.shade900,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          CircleAvatar(
+            backgroundImage: AssetImage('images/pp.jpg'),
+            radius: 40,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            'Kashif Anwaar',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+            child: SizedBox(
+              height: 1,
+              width: 250,
+              child: Divider(
+                color: Colors.white70,
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Image(
+                  width: 50,
+                  image: AssetImage('images/fb.png'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Image(
+                  width: 50,
+                  image: AssetImage('images/twitter.png'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Image(
+                  width: 50,
+                  image: AssetImage('images/ig.png'),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            width: double.infinity,
+          )
+        ],
+      ),
+    );
   }
 }
