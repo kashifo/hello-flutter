@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:Hello_Flutter/biz_card/BizCard.dart';
 import 'package:Hello_Flutter/containers.dart';
 import 'package:Hello_Flutter/revision/add_to_list.dart';
+import 'package:Hello_Flutter/revision/rev_1.dart';
 import 'package:Hello_Flutter/simple_list.dart';
 import 'package:Hello_Flutter/startup_names.dart';
 import 'package:Hello_Flutter/xylophone.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:Hello_Flutter/random_words.dart';
 
@@ -19,144 +23,179 @@ void main() {
   );
 }
 
-class RouteList extends StatelessWidget {
+class RouteList extends StatefulWidget {
+  @override
+  _RouteListState createState() => _RouteListState();
+}
+
+class _RouteListState extends State<RouteList> {
+  Future<bool> _onWillPop() {
+    return showDialog(
+          context: context,
+          builder: (context) {
+            return CupertinoAlertDialog(
+              title: Text('Leave the app?'),
+              content: Text('Are you sure you want to leave the app?'),
+              actions: <Widget>[
+                CupertinoDialogAction(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: Text('No'),
+                ),
+                CupertinoDialogAction(
+                  onPressed: () => exit(0),
+                  /*Navigator.of(context).pop(true)*/
+                  child: Text('Yes'),
+                ),
+              ],
+            );
+          },
+        ) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 20,
-              ),
-              CircleAvatar(
-                radius: 40.0,
-                backgroundImage: AssetImage('images/pp.jpg'),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Kashif Anwaar',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontFamily: 'Courgette',
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Scaffold(
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-              SizedBox(
-                height: 1,
-              ),
-              Text(
-                'Flutter Developer',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                  fontFamily: 'CourierPrime',
-                  letterSpacing: 2,
+                CircleAvatar(
+                  radius: 40.0,
+                  backgroundImage: AssetImage('images/pp.jpg'),
                 ),
-              ),
-              MyDivider(),
-              Expanded(
-                child: ListView(
-                  padding: const EdgeInsets.all(8),
-                  children: <Widget>[
-                    RaisedButton(
-                      child: Text(
-                        'Hello World!',
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Kashif Anwaar',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 22,
+                    fontFamily: 'Courgette',
+                  ),
+                ),
+                SizedBox(
+                  height: 1,
+                ),
+                Text(
+                  'Flutter Developer',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontFamily: 'CourierPrime',
+                    letterSpacing: 2,
+                  ),
+                ),
+                MyDivider(),
+                Expanded(
+                  child: ListView(
+                    padding: const EdgeInsets.all(8),
+                    children: <Widget>[
+                      RaisedButton(
+                        child: Text(
+                          'Hello World!',
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HelloFlutter()),
+                          );
+                        },
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HelloFlutter()),
-                        );
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Random Words'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RandomWordsGen()),
-                        );
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Containers'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => cellDemo()),
-                        );
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Simple List'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SimpleList()),
-                        );
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Infinite List'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => StartupNamesWidget()),
-                        );
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('ListView with Add & Delete'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => AddToList()),
-                        );
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Business Card'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MainBizCard()),
-                        );
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Dice'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => DiceApp()),
-                        );
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Xylophone'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => XyloPhone()),
-                        );
-                      },
-                    ),
-                    Container(
-                      width: double.infinity,
-                    )
-                  ],
-                ),
-              )
-            ],
+                      RaisedButton(
+                        child: Text('Random Words'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RandomWordsGen()),
+                          );
+                        },
+                      ),
+                      RaisedButton(
+                        child: Text('Containers'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => cellDemo()),
+                          );
+                        },
+                      ),
+                      RaisedButton(
+                        child: Text('Simple List'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SimpleList()),
+                          );
+                        },
+                      ),
+                      RaisedButton(
+                        child: Text('Infinite List'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StartupNamesWidget()),
+                          );
+                        },
+                      ),
+                      RaisedButton(
+                        child: Text('ListView with Add & Delete'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddToList()),
+                          );
+                        },
+                      ),
+                      RaisedButton(
+                        child: Text('Business Card'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MainBizCard()),
+                          );
+                        },
+                      ),
+                      RaisedButton(
+                        child: Text('Dice'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DiceApp()),
+                          );
+                        },
+                      ),
+                      RaisedButton(
+                        child: Text('Xylophone'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => XyloPhone()),
+                          );
+                        },
+                      ),
+                      Container(
+                        width: double.infinity,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

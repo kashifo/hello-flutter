@@ -13,6 +13,10 @@ This project is created to learn and practice Flutter.
 |:-------------------:|:------------------------:|:-----------------:|
 | Home Screen | Random Words | Containers |
 
+|![Preview](https://github.com/kashifo/hello_flutter/raw/master/screenshots/friend_list.png) | ![Preview](https://github.com/kashifo/hello_flutter/raw/master/screenshots/add_to_list.png) | ![Preview](https://github.com/kashifo/hello_flutter/raw/master/screenshots/exit_dialog.png) |
+|:-------------------:|:------------------------:|:-----------------:|
+| Simple List | List: Add & Delete | Exit Dialog |
+
 |![Preview](https://github.com/kashifo/hello_flutter/raw/master/screenshots/biz_card.png) | ![Preview](https://github.com/kashifo/hello_flutter/raw/master/screenshots/dice_app.png) | ![Preview](https://github.com/kashifo/hello_flutter/raw/master/screenshots/xylo.png) |
 |:-------------------:|:------------------------:|:-----------------:|
 | Business Card | Dice App | Xylophone |

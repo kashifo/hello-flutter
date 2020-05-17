@@ -15,6 +15,31 @@ class _AddToListState extends State<AddToList> {
   ];
   final nameHolder = TextEditingController();
 
+  Future<bool> _confirmDelete() {
+    return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Delete?'),
+            content: Text('Are you sure you want to delete'),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  return Navigator.of(context).pop(false);
+                },
+                child: Text('No'),
+              ),
+              FlatButton(
+                onPressed: () {
+                  return Navigator.of(context).pop(true);
+                },
+                child: Text('Yes'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,8 +61,13 @@ class _AddToListState extends State<AddToList> {
                     trailing: IconButton(
                       icon: Icon(Icons.delete),
                       onPressed: () {
-                        setState(() {
-                          itemList.removeAt(i);
+                        _confirmDelete().then((isDelete) {
+                          print('_confirmDelete = $isDelete');
+                          if (isDelete) {
+                            setState(() {
+                              itemList.removeAt(i);
+                            });
+                          }
                         });
                       },
                     ),
