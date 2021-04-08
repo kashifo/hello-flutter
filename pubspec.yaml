@@ -12,11 +12,17 @@ dependencies:
 
   cupertino_icons: ^0.1.2
   english_words: ^3.1.0
-  assets_audio_player: ^1.3.8+1
+  assets_audio_player: 1.3.8
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.8.0"
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: "app_icon"
+  ios: "app_icon"
+  image_path: "images/flutter_cropped.jpg"
 
 flutter:
   uses-material-design: true

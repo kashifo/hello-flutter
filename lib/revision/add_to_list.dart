@@ -44,6 +44,9 @@ class _AddToListState extends State<AddToList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
         title: Text(
           'Add to list',
           style: TextStyle(color: Colors.black),
